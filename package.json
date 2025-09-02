@@ -1,5 +1,6 @@
 {
   "name": "infinite-calender",
+  "homepage": "https://shub-dhale.github.io/Infinite-Calendar/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,7 +8,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy" : "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.15",
@@ -17,6 +20,7 @@
     "clsx": "^2.1.1",
     "dayjs": "^1.11.18",
     "framer-motion": "^12.23.12",
+    "gh-pages": "^6.3.0",
     "lucide-react": "^0.542.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
