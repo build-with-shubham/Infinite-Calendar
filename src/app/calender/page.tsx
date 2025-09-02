@@ -1,16 +1,16 @@
 
-import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react"
-import { AnimatePresence, motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
+import { Dialog, DialogContent } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { AnimatePresence, motion } from "framer-motion"
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react"
 
-import type { EventEntry, FilterState } from "@/types/events"
-import { addMonths, buildThresholdList, clamp, isLeapYear, monthLabel, startOfMonth, ymd } from "@/lib/date"
-import { fetchRemoteJournal, loadLocalEvents, saveLocalEvents } from "@/lib/data"
 import { EventForm } from "@/components/Calendar/EventForm"
 import { MonthGrid } from "@/components/Calendar/MonthGrid"
 import { SwipeCard } from "@/components/Calendar/SwipeCard"
+import { fetchRemoteJournal, loadLocalEvents, saveLocalEvents } from "@/lib/data"
+import { addMonths, buildThresholdList, clamp, isLeapYear, monthLabel, startOfMonth, ymd } from "@/lib/date"
+import type { EventEntry, FilterState } from "@/types/events"
 
 const HEADER_HEIGHT = 72
 const WEEKDAY_LABELS = (startOnMonday: boolean) =>
@@ -71,7 +71,7 @@ export default function CalendarPage() {
             if (!map.has(e.date)) map.set(e.date, [])
             map.get(e.date)!.push(e)
         }
-        for (const [k, arr] of map) arr.sort((a, b) => (a.id > b.id ? 1 : -1))
+        for (const [_k, arr] of map) arr.sort((a, b) => (a.id > b.id ? 1 : -1))
         return map
     }, [allEvents])
 

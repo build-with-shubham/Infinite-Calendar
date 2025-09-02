@@ -1,4 +1,4 @@
-import { JournalEntry } from "@/types/events";
+import type { JournalEntry } from "@/types/events";
 
 const STORAGE_KEY = "journal_entries";
 
