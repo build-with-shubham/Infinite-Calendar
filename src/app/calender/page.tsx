@@ -369,9 +369,7 @@ export default function CalendarPage() {
 
             {/* Add/Edit Event Dialog */}
             <Dialog open={openEventForm} onOpenChange={setOpenEventForm}>
-                <DialogHeader>
-                    {/* <DialogTitle>{editing ? "Edit Entry" : "Add Entry"}</DialogTitle> */}
-                </DialogHeader>
+
                 <DialogContent>
                     <EventForm
                         defaultDate={formDate}

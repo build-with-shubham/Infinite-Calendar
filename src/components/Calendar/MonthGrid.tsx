@@ -34,11 +34,10 @@ export const MonthGrid: React.FC<{
           return (
             <div
               key={iso + idx}
-              className={`min-h-[92px] md:min-h-[120px] rounded-2xl border p-2 flex flex-col gap-1 transition ${
-                isCurrentMonthDay
-                  ? "bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800"
-                  : "bg-gray-50 dark:bg-gray-900/40 border-gray-200/60 dark:border-gray-800/60 opacity-70"
-              }`}
+              className={`min-h-[92px] md:min-h-[120px] rounded-2xl border p-2 flex flex-col gap-1 transition ${isCurrentMonthDay
+                ? "bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800"
+                : "bg-gray-50 dark:bg-gray-900/40 border-gray-200/60 dark:border-gray-800/60 opacity-70"
+                }`}
               onClick={() => onDayClick(iso)}
               role="button"
               aria-label={`Open day ${iso}`}
@@ -47,6 +46,7 @@ export const MonthGrid: React.FC<{
                 <div className="text-sm font-medium">{d.getDate()}</div>
                 {isToday && <span className="text-[10px] px-2 py-0.5 rounded-full bg-black text-white">Today</span>}
               </div>
+
               <div className="flex flex-wrap gap-1">
                 {entries.slice(0, 3).map((e, i) =>
                   e.imageUrl ? (
@@ -54,7 +54,7 @@ export const MonthGrid: React.FC<{
                       key={e.id}
                       src={e.imageUrl || "/placeholder.svg"}
                       alt="Entry thumbnail"
-                      className="w-8 h-8 rounded-lg object-cover cursor-pointer"
+                      className="w-30 h-30 rounded-lg overflow-hidden cursor-pointer flex items-center justify-center"
                       onClick={(ev) => {
                         ev.stopPropagation()
                         onEntryClick(iso, i)
